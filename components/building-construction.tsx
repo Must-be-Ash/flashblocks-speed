@@ -185,47 +185,48 @@ export function BuildingConstruction() {
             </div>
           </div>
           
-          <div className="flex flex-col md:flex-row gap-4">
+          {/* Modified to show buildings side by side on mobile */}
+          <div className="flex flex-row gap-2 md:gap-4">
             <div className="flex-1 space-y-2">
-              <div className="relative h-[450px] border rounded-lg flex items-center justify-center p-3 pt-12 bg-gradient-to-b from-sky-50 via-sky-100 to-sky-200 dark:from-sky-900 dark:via-sky-800 dark:to-sky-950 overflow-hidden">
+              <div className="relative h-[300px] md:h-[450px] border rounded-lg flex items-start justify-center p-3 pt-12 bg-gradient-to-b from-sky-50 via-sky-100 to-sky-200 dark:from-sky-900 dark:via-sky-800 dark:to-sky-950 overflow-hidden">
                 {renderBuilding(selectedBuilding, flashblocksFloors)}
               </div>
               <div className="flex items-center justify-between">
                 <Progress value={flashblocksProgress} className="h-2 flex-1" />
                 <span className="ml-2 text-xs font-medium">{flashblocksCurrentTime}s</span>
               </div>
-              <div className="text-center text-sm font-medium">Flashblocks</div>
+              <div className="text-center text-xs md:text-sm font-medium">Flashblocks</div>
             </div>
 
             <div className="flex-1 space-y-2">
-              <div className="relative h-[450px] border rounded-lg flex items-center justify-center p-3 pt-12 bg-gradient-to-b from-sky-50 via-sky-100 to-sky-200 dark:from-sky-900 dark:via-sky-800 dark:to-sky-950 overflow-hidden">
+              <div className="relative h-[300px] md:h-[450px] border rounded-lg flex items-start justify-center p-3 pt-12 bg-gradient-to-b from-sky-50 via-sky-100 to-sky-200 dark:from-sky-900 dark:via-sky-800 dark:to-sky-950 overflow-hidden">
                 {renderBuilding(selectedBuilding, blocksFloors)}
               </div>
               <div className="flex items-center justify-between">
                 <Progress value={blocksProgress} className="h-2 flex-1" color="destructive" />
                 <span className="ml-2 text-xs font-medium">{blocksCurrentTime}s</span>
               </div>
-              <div className="text-center text-sm font-medium">Traditional Blocks</div>
+              <div className="text-center text-xs md:text-sm font-medium">Traditional Blocks</div>
             </div>
           </div>
 
           {/* Real-world construction time comparison - always visible */}
           <div className="mt-3">
-            <div className="bg-muted p-3 rounded-lg max-w-3xl mx-auto">
-              <h3 className="text-base font-semibold mb-2 text-center">Real-World Construction Comparison</h3>
+            <div className="bg-muted p-2 md:p-3 rounded-lg max-w-3xl mx-auto">
+              <h3 className="text-sm md:text-base font-semibold mb-2 text-center">Real-World Construction Comparison</h3>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <div className="bg-background p-2 rounded-md border">
-                  <div className="text-xs text-muted-foreground">With Flashblocks Technology:</div>
-                  <div className="font-medium text-sm">It would have only taken <span className="text-primary font-bold">{timeComparison.flashblocks}</span> to build</div>
+              <div className="grid grid-cols-2 gap-2 md:gap-3">
+                <div className="bg-background p-1 md:p-2 rounded-md border">
+                  <div className="text-[10px] md:text-xs text-muted-foreground">With Flashblocks Technology:</div>
+                  <div className="font-medium text-xs md:text-sm">It would have only taken <span className="text-primary font-bold">{timeComparison.flashblocks}</span> to build</div>
                 </div>
-                <div className="bg-background p-2 rounded-md border">
-                  <div className="text-xs text-muted-foreground">Blocks:</div>
-                  <div className="font-medium text-sm">The {buildingData.name} took <span className="text-destructive font-bold">{timeComparison.traditional}</span> to build</div>
+                <div className="bg-background p-1 md:p-2 rounded-md border">
+                  <div className="text-[10px] md:text-xs text-muted-foreground">Blocks:</div>
+                  <div className="font-medium text-xs md:text-sm">The {buildingData.name} took <span className="text-destructive font-bold">{timeComparison.traditional}</span> to build</div>
                 </div>
               </div>
               
-              <div className="text-center text-xs text-muted-foreground mt-2">
+              <div className="text-center text-[10px] md:text-xs text-muted-foreground mt-2">
                 That&apos;s a 10x improvement in speed! Each task that takes 2 seconds with Traditional Blocks takes only 200ms with Flashblocks
               </div>
             </div>
